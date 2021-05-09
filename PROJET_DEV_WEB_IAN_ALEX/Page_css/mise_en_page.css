@@ -1,0 +1,117 @@
+/* 
+---------------------------------------------------------
+Voici la première page, page principal du site Spaven.com
+
+---------------------------------------------------------
+
+*/
+
+
+
+/*Les règles générales */
+
+:root{
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #1A1C19;
+    --bg-primary: #D1FFC3;
+    --bg-secondary: #FFFFFF;
+    box-sizing: border-box;
+}
+
+
+body{
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: black;
+}
+
+/*Disposition du site : */
+
+header{
+    background-color: var(--bg-primary);
+}
+
+
+/*On va définir notre bandeau d'en-tête ici : */
+
+#tete-page {
+    display: grid;
+    grid-template-rows: 10vh 1fr;
+}
+
+/*Techniquement ici c'est un "sur"header pour les liens réseaux sociaux */
+
+.reseaux {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slogan {
+    font-size: 8px;
+    color: var(--text-primary);
+    padding: 0px 0px 0px 25%;
+    transform-style: color(--bg-secondary);
+}
+
+
+.lien-contact {
+    list-style: none;
+}
+
+.lien-contact li{
+    display: inline-block;
+    padding-bottom: 35px;
+}
+
+.lien-contact li a{
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease 0s;
+}
+
+.lien-contact li a:hover {
+    color: lime;
+}
+
+
+/*Partie logo, recherche, compte, panier */
+
+.menu {
+    display: flex;
+    justify-content: space-between;;
+}
+
+.logo {
+    cursor: pointer;
+    padding: 0px 0px 1rem 2%;
+}
+
+.lien-nav {
+    list-style: none;
+    padding: 0px 10rem 0px 0px;
+}
+
+.lien-nav li{
+    display: inline-block;
+}
+
+.lien-nav li a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease 0s;
+}
+
+.lien-nav li a:hover {
+    color: lime;
+}
+
