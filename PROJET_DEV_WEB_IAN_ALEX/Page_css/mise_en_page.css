@@ -7,7 +7,6 @@ Voici la première page, page principal du site Spaven.com
 */
 
 
-
 /*Les règles générales */
 
 :root{
@@ -19,12 +18,15 @@ Voici la première page, page principal du site Spaven.com
     box-sizing: border-box;
 }
 
+html, body{
+    height: 100%;
+}
+
 
 body{
     color: black;
     background-color: white;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
 }
 
 body::-webkit-scrollbar {
@@ -38,80 +40,177 @@ body::-webkit-scrollbar-track {
 /*Disposition du site : */
 
 header{
+    position: fixed;
+    top: 0;
     background-color: var(--bg-primary);
+    min-height: 120px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: var(--bg-primary);
+    min-height: 10vh;
+}
+
+main {
+    padding : 5vh 0px 5vh 0px;
+    margin : 0 auto;
+}
+
+@media (max-height:1440px){
+    footer {position: static;}
+    header {position: static;}
 }
 
 
-/*On va définir notre bandeau d'en-tête ici : */
+/*On définit le style de notre bandeau d'en-tête ici : */
 
-#tete-page {
-    display: grid;
-    grid-template-rows: 10vh 1fr;
+
+/* Mise en forme class tete */
+.tete {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    margin-top: 0px;
 }
 
-/*Techniquement ici c'est un "sur"header pour les liens réseaux sociaux */
-
-.reseaux {
-    display: flex;
-    justify-content: space-between;
+.tete h1 {
+    font-size : 20px;
+    padding-top: 0;
 }
+
+.tete .pre-navbar .slogan {
+    text-align: left;
+}
+
+
+.tete li {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0px 10px 0px 0px;
+}
+
+.tete li a{
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease 0s;
+}
+
+
+.tete li a:hover{
+    color: lime;
+}
+
+
+/*paufine classe slogan res-sociaux */
 
 .slogan {
-    font-size: 8px;
-    color: var(--text-primary);
-    padding: 0px 0px 0px 25%;
-    transform-style: color(--bg-secondary);
+    padding-left: 3vw;
 }
 
-
-.lien-contact {
-    list-style: none;
+.res-sociaux {
+    float : right;
 }
 
-.lien-contact li{
+/*Paufine pre-navbar*/
+
+.pre-navbar {
+    width: 100%;
+    height: 50px;
+}
+
+.pre-navbar .slogan, .pre-navbar .res-sociaux {
     display: inline-block;
-    padding-bottom: 35px;
+    vertical-align: top;
 }
 
-.lien-contact li a{
+/*paufin navbar */
+
+.navbar {
+    padding-top : 1vh;
+    width: 100%;
+}
+
+
+.navbar .logo, .navbar .navig { 
+    display: inline-block;
+    vertical-align: top;
+    padding-left : 2vw;
+}
+
+.navig {
+    float: right;
+}
+
+
+/*On définit le style de notre pied de page ici : */
+
+.pied {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    padding: 50px 50px 60px 50px;
+    margin-top: 100px;
+}
+
+.pied .Aide, .pied .Mon_compte, .pied .Boutique{
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+}
+
+.pied h5 {
+    color: black;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.pied ul {
+    list-style: none;
+    position: relative;
+    text-align: left;
+}
+
+.pied li a{
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.2s ease 0s;
 }
 
-.lien-contact li a:hover {
+.pied li a:hover{
     color: lime;
 }
 
 
-/*Partie logo, recherche, compte, panier */
 
-.menu {
-    display: flex;
-    justify-content: space-between;;
+/*On optimise la disposition par rapport à la taille de l'écran */
+
+@media (max-width: 600px) {
+    .pied .Aide, .pied .Mon_compte, .pied .Boutique{
+	display: block;
+	width: 100%;
+	margin-bottom: 40px;
+	text-align: center;
+    }
+
+    .navbar a:not(:first-child) {display:none}
+    .navbar a.icon {
+	float: right;
+	display: block;
+    }
+
+    .navbar.opti {position: relative;}
+    .navbar.opti .icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+    }
+    .navbar.opti a {
+	float: none;
+	display: block;
+	text-align: left;
+    }
 }
-
-.logo {
-    cursor: pointer;
-    padding: 0px 0px 1rem 2%;
-}
-
-.lien-nav {
-    list-style: none;
-    padding: 0px 10rem 0px 0px;
-}
-
-.lien-nav li{
-    display: inline-block;
-}
-
-.lien-nav li a {
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: all 0.2s ease 0s;
-}
-
-.lien-nav li a:hover {
-    color: lime;
-}
-
