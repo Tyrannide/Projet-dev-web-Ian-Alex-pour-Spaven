@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="description" content="Spaven.com, futur leader des marques de vêtement">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../Page_css/mise_en_page.css">
-    <link rel="shortcut icon" href="../Images/logo.png">
+    <link rel="stylesheet" href="Page_css/mise_en_page.css">
+    <link rel="shortcut icon" href="Images/logo.png">
     <title>Spaven.com - Boutique de vêtements en ligne</title>
   </head>
 
@@ -19,33 +19,60 @@
 	</div>
 	<div class="res-sociaux">
 	  <ul class="lien-contact">
-	    <li><a href="#Yt">Youtube</a></li>
-	    <li><a href="#Inst">Instagram</a></li>
-	    <li><a href="#TT">Tiktok</a></li>
+	    <li><a href="#Yt"><img src="Images/youtube.png" alt="Ytube" width="25" height="25"></a></li>
+	    <li><a href="#Inst"><img src="Images/insta.png" alt="Insta" width="25" height="25"></a></li>
+	    <li><a href="#TT"><img src="Images/tiktok.png" alt="tiktok" width="25" height="25"></a></li>
 	  </ul>
 	</div>
 
 	<div class="navbar" id="navigation">
-	  <a href="page.html" class="active"><img class="logo" src="../Images/logo.png" alt="Spaven" width="35" height="50"></a>
-	  <nav class="navig">
-	    <ul class="lien-nav">
-	      <li><a href="#">Recherche</a></li>
-	      <li><a href="#">Compte</a></li>
-	      <li><a href="#">Panier</a></li>
-	      <li><a href="#">Nous contacter</a></li>
-	    </ul>
-	  </nav>
+	  <a href="page.html" class="active"><img class="logo" src="Images/logo.png" alt="Spaven" width="35" height="55"></a>
+	  <a href="#">Nous contacter</a>
+	  <a href="#">Panier</a>
+	  <a href="#">Compte</a>
+	  <button onclick="affiche_menu()">Recherche</button>
+	  <a href="javascript:void(0);" class="icon" onclick="nav_opti()"><img src="Images/index1.png" alt="Menu" width="30" height="30">
+	  </a>
 	</div>
-	<a href="javascript:void(0);" class="icon" onclick="nav_opti()"><i class="fa fa-bars"></i></a>
       </div>
     </header>
 
     <main>
+      <div id="menu">
+	<input type="text" id="recherche" onkeyup="lance_recherche()" placeholder="Une envie particulière...?" title="Chercher un produit">
+      <ul class="liste-menu">
+	<li><a href="#">TEST</a></li>
+	<li><a href="#">QUIT</a></li>
+	<li><a href="#">TEST</a></li>
+	<li><a href="#">QUIT</a></li>
+      </ul>
+      </div>
       <h1> TEST , tout petit test</h1>
-      <p>
-	La race tyranide est une espèce terrifiante qui provient du vide interstellaire, au delà de cette galaxie et qui n’est motivée que par une faim insatiable. On la nomme Le Grand Carnassier, La Mort de Toutes Choses, l’Ombre dans le Warp ou encore La Vengeance des Anciens Dieux. Les tyranides inspirent une horreur viscérale à tout ce qui vit, car ce sont des créatures toutes de griffes et de crocs capables de déchiqueter un homme en quelques secondes. Leur nombre est inimaginable et leurs myriades sont si vastes qu’elles s’étendent d’une étoile à l’autre. Cette marée vivante est coordonnée par une volonté implacable que l’on appelle l’Esprit de la Ruche. Sous son influence, les tyranides sont capables de se battre de façon concertée, poussés par une faim si dévorante qu’ils ont déjà causé la disparition de civilisations entières. L’Imperium a découvert cette race pour la première fois au 41ème millénaire après leur apparition aux frontières orientales
-
-      </p>
+      <table>
+      <thead>
+        <tr>
+          <th colspan="4">Les Nouveautés</th>
+        </tr>
+        <tr>
+          <th>Visuel</th>
+          <th>Produit</th>
+          <th>Prix</th>
+          <th>Accéder</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src ="nulle.png"></td><td>Vêtement F1</td><td>9.99€</td><td><a href ="article.php?id=10">Voir l'article</a></td>
+          </tr><tr>
+          <td><img src ="nulle.png"></td><td>Vêtement H1</td><td>19.99€</td><td><a href ="article.php?id=9">Voir l'article</a></td>
+          </tr><tr>
+          <td><img src ="nulle.png"></td><td>Vêtement F1</td><td>9.99€</td><td><a href ="article.php?id=8">Voir l'article</a></td>
+          </tr><tr>
+          <td><img src ="nulle.png"></td><td>Vêtement H1</td><td>19.99€</td><td><a href ="article.php?id=7">Voir l'article</a></td>
+          </tr><tr>
+          <td><img src ="nulle.png"></td><td>Vêtement F1</td><td>9.99€</td><td><a href ="article.php?id=6">Voir l'article</a></td>
+          </tr>      </tbody>
+    </table>
     </main>
 
     <footer class="pied">
@@ -75,11 +102,40 @@
 
     <script>
       function nav_opti() {
+	  
+	  // On trigger l'affichage du menu navigation sur les petits écrans
 	  var x = document.getElementById("navigation");
 	  if (x.className === "navbar") {
 	      x.className += " opti";
-	  } else :{
+	  } else {
 	      x.className = "navbar";
+	  }
+      }
+
+      function affiche_menu() {
+	  
+	  // On détermine si le menu s'affiche ou non
+	  var Menu = document.getElementById("menu");
+	  Menu.style.display = Menu.offsetWidth ? "none" : "block";
+      }
+
+      function lance_recherche() {
+
+	  // On récupère toutes les valeurs nécessaires
+	  var input, filtre, ul, li, a, i;
+	  input = document.getElementById("recherche");
+	  filtre = input.value;
+	  ul = document.getElementById("menu");
+	  li = ul.getElementsByTagName("li");
+
+	  // On parcours tout les éléments li en masquant ceux qui ne correspondent pas
+	  for ( i = 0; i < li.length; i++) {
+	      a = li[i].getElementsByTagName("a")[0];
+	      if (a.innerHTML.indexOf(filtre) > -1) {
+		  li[i].style.display = "";
+	      } else {
+		  li[i].style.display = "none";
+	      }
 	  }
       }
     </script>
