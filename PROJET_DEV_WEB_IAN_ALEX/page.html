@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Spaven.com, futur leader des marques de vêtement">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="Page_css/mise_en_page.css">
+    <link rel="shortcut icon" href="Images/logo.png">
+    <title>Spaven.com - Boutique de vêtements en ligne</title>
+  </head>
+
+  <body id="magasin-officiel-spaven-vetement">
+    
+    <header class="tete">
+      <div class="pre-navbar">
+	<div class="slogan">
+	  <h1>#Staycalmandkeepfocused</h1>
+	</div>
+	<div class="res-sociaux">
+	  <ul class="lien-contact">
+	    <li><a href="#Yt"><img src="Images/youtube.png" alt="Ytube" width="25" height="25"></a></li>
+	    <li><a href="#Inst"><img src="Images/insta.png" alt="Insta" width="25" height="25"></a></li>
+	    <li><a href="#TT"><img src="Images/tiktok.png" alt="tiktok" width="25" height="25"></a></li>
+	  </ul>
+	</div>
+
+	<div class="navbar" id="navigation">
+	  <a href="page.html" class="active"><img class="logo" src="Images/logo.png" alt="Spaven" width="35" height="55"></a>
+	  <a href="#">Nous contacter</a>
+	  <a href="#">Panier</a>
+	  <a href="#">Compte</a>
+	  <button onclick="affiche_menu()">Recherche</button>
+	  <a href="javascript:void(0);" class="icon" onclick="nav_opti()"><img src="Images/index1.png" alt="Menu" width="30" height="30">
+	  </a>
+	</div>
+      </div>
+    </header>
+
+    <main>
+      <div id="menu">
+	<input type="text" id="recherche" onkeyup="lance_recherche()" placeholder="Une envie particulière...?" title="Chercher un produit">
+      <ul class="liste-menu">
+	<li><a href="#">TEST</a></li>
+	<li><a href="#">QUIT</a></li>
+	<li><a href="#">TEST</a></li>
+	<li><a href="#">QUIT</a></li>
+      </ul>
+      </div>
+      <div class="tab">
+	<div class="image1"><a href="article.php?id=10"><img src="Images/jupe.png" width="100" height="100" alt="produit"></a></div>
+	<div class="nom1">Vêtement F1</div>
+	<div class="prix1">9.99€</div>
+	<div class="image2"><a href="article.php?id=10"><img  src="Images/jupe.png" width="100" height="100" alt="produit"></a></div>
+	<div class="nom2">Vêtement F2</div>
+	<div class="prix2">19.99€</div>
+	<div class="image3"><a href="article.php?id=10"><img src="Images/jupe.png" width="100" height="100" alt="produit"></a></div>
+	<div class="nom3">Vêtement H1</div>
+	<div class="prix3">19.99€</div>
+	<div class="image4"><a href="article.php?id=10"><img  src="Images/jupe.png" width="100" height="100" alt="produit"></a></div>
+	<div class="nom4">Vêtement H2</div>
+	<div class="prix4">9.99€</div>
+	<div class="image5"><a href="article.php?id=10"><img src="Images/jupe.png" width="100" height="100"  alt="produit"></a></div>
+	<div class="nom5">Vêtement F3</div>
+	<div class="prix5">19.99€</div>
+      </div>
+      
+    </main>
+
+    <footer class="pied">
+      <div class="Boutique">
+	<h5 class="t-boutique">BOUTIQUE</h5>
+	<ul class="lien-boutique">
+	  <li><a href="#" title="Pour Femmes">Pour Femmes</a></li>
+	  <li><a href="#" title="Pour Hommes">Pour Hommes</a></li>
+	</ul>
+      </div>
+      <div class="Aide">
+	<h5 class="t-aide">AIDE</h5>
+	<ul class="lien-aide">
+	  <li><a href="#" title="FAQ">FAQ</a></li>
+	  <li><a href="#" title="Informations livraisons">Informations livraisons</a></li>
+	  <li><a href="#" title="Commande">Commande</a></li>
+	</ul>
+      </div>
+      <div class="Mon_compte">
+	<h5 class="t-compte">MON COMPTE</h5>
+	<ul class="lien-compte">
+	  <li><a href="#" title="Connexion">Connexion</a></li>
+	  <li><a href="#" title="S'inscrire">S'inscrire</a></li>
+	</ul>	    
+      </div>
+    </footer>
+
+    <script>
+      function nav_opti() {
+	  
+	  // On trigger l'affichage du menu navigation sur les petits écrans
+	  var x = document.getElementById("navigation");
+	  if (x.className === "navbar") {
+	      x.className += " opti";
+	  } else {
+	      x.className = "navbar";
+	  }
+      }
+
+      function affiche_menu() {
+	  
+	  // On détermine si le menu s'affiche ou non
+	  var Menu = document.getElementById("menu");
+	  Menu.style.display = Menu.offsetWidth ? "none" : "block";
+      }
+
+      function lance_recherche() {
+
+	  // On récupère toutes les valeurs nécessaires
+	  var input, filtre, ul, li, a, i;
+	  input = document.getElementById("recherche");
+	  filtre = input.value;
+	  ul = document.getElementById("menu");
+	  li = ul.getElementsByTagName("li");
+
+	  // On parcours tout les éléments li en masquant ceux qui ne correspondent pas
+	  for ( i = 0; i < li.length; i++) {
+	      a = li[i].getElementsByTagName("a")[0];
+	      if (a.innerHTML.indexOf(filtre) > -1) {
+		  li[i].style.display = "";
+	      } else {
+		  li[i].style.display = "none";
+	      }
+	  }
+      }
+    </script>
+    
+  </body>
+</html>

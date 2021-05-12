@@ -107,7 +107,7 @@ main {
 /*paufine classe slogan res-sociaux */
 
 .slogan {
-    padding-left: 3vw;
+    padding-left: 40vw;
 }
 
 .res-sociaux {
@@ -134,15 +134,157 @@ main {
 }
 
 
-.navbar .logo, .navbar .navig { 
+.navbar .logo { 
     display: inline-block;
     vertical-align: top;
     padding-left : 2vw;
 }
 
-.navig {
+.navbar button {
     float: right;
 }
+
+.navbar button:hover {
+    color: lime;
+}
+
+.navbar a:not(:first-child) {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease 0s;
+    float: right;
+    padding: 0px 10px 0px 10px;
+}
+
+.navbar a:hover {
+    color: lime;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+/*Définit le main : */
+
+#recherche {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    background-color : #ddd;
+}
+
+#menu {
+    display : none;
+    background-color : #b6eaa5;
+}
+
+.liste-menu {
+    width: 100%;
+    font-size : 18px;
+    padding : 11px;
+    border: 1px solid #ddd;
+    list-style-type : none;
+    margin: 0;
+    color : #aaa;
+}
+
+.liste-menu li a {
+    text-decoration : none;
+    color: black;
+    display: block;
+}
+
+.liste-menu a:hover {
+    background-color: #eee;
+}
+
+.inutile {
+    display : none;
+}
+
+.tab {
+    display : grid;
+    grid-template-columns: repeat(10, 110px);
+    grid-template-rows: repeat(5, 40px);
+    padding : 0px 50px 0px 50px;
+}
+
+.image1 {
+    grid-column : 1 / 2;
+    grid-row: 1;
+}
+
+.nom1 {
+    grid-column : 1;
+    grid-row: 5;
+}
+
+.prix1 {
+    grid-column : 2;
+    grid-row : 5;
+}
+
+.image2 {
+    grid-column : 3 / 4;
+    grid-row: 1;
+}
+
+.nom2 {
+    grid-column : 3;
+    grid-row: 5;
+}
+
+.prix2 {
+    grid-column : 4;
+    grid-row : 5;
+}
+
+.image3 {
+    grid-column : 5 / 6;
+    grid-row: 1;
+}
+
+.nom3 {
+    grid-column : 5;
+    grid-row: 5;
+}
+
+.prix3 {
+    grid-column : 6;
+    grid-row : 5;
+}
+
+.image4 {
+    grid-column : 7 / 8;
+    grid-row: 1;
+}
+
+.nom4 {
+    grid-column : 7;
+    grid-row: 5;
+}
+
+.prix4 {
+    grid-column : 8;
+    grid-row : 5;
+}
+
+.image5 {
+    grid-column : 9 / 10;
+    grid-row: 1;
+}
+
+.nom5 {
+    grid-column : 9;
+    grid-row: 5;
+}
+
+.prix5 {
+    grid-column : 10;
+    grid-row : 5;
+}
+
 
 
 /*On définit le style de notre pied de page ici : */
@@ -188,6 +330,15 @@ main {
 
 /*On optimise la disposition par rapport à la taille de l'écran */
 
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(:first-child) {display:none;}
+    .navbar a.icon {
+	float: right;
+	display: block;
+    }
+}
+
 @media (max-width: 600px) {
     .pied .Aide, .pied .Mon_compte, .pied .Boutique{
 	display: block;
@@ -196,21 +347,26 @@ main {
 	text-align: center;
     }
 
-    .navbar a:not(:first-child) {display:none}
-    .navbar a.icon {
-	float: right;
-	display: block;
+
+    .slogan {
+	padding-left: 3vw;
     }
 
-    .navbar.opti {position: relative;}
+
+    .navbar.opti {
+	position: relative;
+    }
     .navbar.opti .icon {
 	position: absolute;
 	right: 0;
 	top: 0;
+	transform: rotate(-90deg);
     }
     .navbar.opti a {
 	float: none;
 	display: block;
 	text-align: left;
+	background-color: var(--bg-primary);
     }
 }
+
